@@ -1,0 +1,199 @@
+@import url(gold.css);
+
+:root {
+    font-size: 12px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+    padding-top: 15rem;
+}
+
+#button {
+    anchor-name: --button;
+    background-color: gainsboro;
+    border: 1px solid black;
+    width: fit-content;
+    padding: .4rem;
+    transition: linear .5s;
+}
+#button:hover {
+    background-color: lightgray;
+}
+#button.upgrade1 {
+    padding: .5rem;
+    background: linear-gradient(to top, gainsboro, white);
+    border-radius: 1rem;
+    padding-inline: 1rem;
+}
+#button.upgrade1:active {
+    scale: .9;
+    background: linear-gradient(to bottom, gainsboro, white);
+}
+
+.clickable {
+    user-select: none;
+    cursor: pointer;
+}
+
+#upgrades {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+    z-index: 2;
+}
+#upgrades > div:hover {
+    transform: translateY(-.2rem);
+    transition: .2s linear;
+}
+#upgrades > div > img {
+    aspect-ratio: 1/1;
+    mix-blend-mode: multiply;
+}
+
+[aria-describedby] {
+    aspect-ratio: 1/1;
+    width: 7rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    position: relative;
+}
+[role="tooltip"] {
+  visibility: hidden;
+  position: absolute;
+  top: 8rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 2rem;
+  filter: drop-shadow(0px 0px 2px black);
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: .1rem;
+  width: max-content;
+}
+[role="tooltip"] > p:first-child {
+    font-weight: bold;
+}
+[role="tooltip"] > p:nth-child(2) {
+    color: grey;
+}
+[role="tooltip"] > p:last-child {
+    padding-top: .1rem;
+}
+[aria-describedby]:hover > [role="tooltip"] {
+  visibility: visible;
+}
+
+p.broke {
+    color: red;
+}
+
+/* upgrades */
+
+#rain {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    opacity: .2;
+}
+#rain > img {
+    width: 150%;
+    height: 150%;
+    object-fit: cover;
+    animation: rainAnimation 2s linear infinite;
+}
+@keyframes rainAnimation {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.stream {
+    width: 20rem;
+    position: absolute;
+}
+.stream > img {
+    aspect-ratio: 16 / 9;
+}
+#subway_stream {
+    bottom: 0;
+    right: 0;
+}
+#lofi_stream {
+    bottom: 0;
+    right: 25rem;
+}
+#slime_stream {
+    top: 4rem;
+    left: 0rem;
+}
+#mukbang_stream {
+    top: 16rem;
+    left: 0rem;
+}
+
+#news {
+    position:absolute;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 140%;
+    border-bottom: 1px solid black;
+}
+#news span {
+    color: white;
+    background-color: black;
+    width: max-content;
+    z-index: 1;
+    padding-inline: 1rem;
+}
+
+#menus {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+#menus > div {
+    border: 1px solid black;
+    border-radius: 2rem;
+    background-color: white;
+    padding-inline: .8rem;
+}
+#menus > div:hover {
+    scale: 1.05;
+    transition: .2s linear;
+}
+
+#pinwheel {
+    position: absolute;
+    position-anchor: --button;
+    position-area: center;
+    width: 200vw;
+    height: 200vh;
+    z-index: -2;
+    background: radial-gradient(circle, white, grey);
+    animation: changeColor 5s infinite;
+    filter: brightness(1);
+}
+@keyframes changeColor {
+    50% {filter: brightness(1.1);}
+}
