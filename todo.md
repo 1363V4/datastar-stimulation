@@ -1,4 +1,4 @@
 - nice animation for upgrade entry
-- latch mechanism
 - web components for dvd and +1 click
 - faster refresh rate
+- more upgrades

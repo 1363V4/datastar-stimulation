@@ -10,26 +10,61 @@
 </head>
 <body>
     <main style="display: none" data-show="true">
-        <div 
-        data-persist
+        <div
         data-signals="{
             stimulation: 0, 
-            upgrades: 0,
-            click: {upgrade1: 0}, 
-            rain: 0,
+            prev_stimulation: 0,
+            sps: 0,
+            show: {
+                dvd: 0,
+                tab: 0,
+                counter: 0,
+                upgrade1: 0,
+                subway: 0,
+                news: 0,
+                lofi: 0,
+                rain: 0,
+                pinwheel: 0,
+                press: 0,
+                achievements: 0,
+                popcorn: 0,
+                slime: 0,
+                mukbang: 0
+            }
+        }"
+        data-on-signal-change-stimulation="
+        console.log('ok');
+        $stimulation >= 5? ($show.dvd = 1) : null;
+        $stimulation >= 10? ($show.tab = 1) : null;
+        $stimulation >= 25? ($show.counter = 1) : null;
+        $stimulation >= 40? ($show.upgrade1 = 1) : null;
+        $stimulation >= 100? ($show.subway = 1, $show.news = 1) : null;
+        $stimulation >= 250? ($show.lofi = 1) : null;
+        $stimulation >= 300? ($show.rain = 1) : null;
+        $stimulation >= 700? ($show.pinwheel = 1) : null;
+        $stimulation >= 1000? ($show.press = 1) : null;
+        $stimulation >= 1500? ($show.achievements = 1) : null;
+        $stimulation >= 3500? ($show.popcorn = 1) : null;
+        $stimulation >= 4000? ($show.slime = 1) : null;
+        $stimulation >= 6000? ($show.mukbang = 1) : null
+        ">
+        </div>
+        <div 
+        data-signals="{
+            dvd: 0,
             tab: 0,
             counter: 0,
+            upgrade1: 0, 
             subway: 0,
-            sps: 0,
-            prev_stimulation: 0,
-            lofi: 0,
             news: 0,
+            lofi: 0,
+            rain: 0,
             pinwheel: 0,
             press: 0,
-            mukbang: 0,
             achievements: 0,
             popcorn: 0,
-            slime: 0
+            slime: 0,
+            mukbang: 0
         }"
         data-on-raf__throttle.1s="
         $stimulation += 
@@ -49,10 +84,10 @@
         <div
         id="button"
         class="gt l clickable"
-        data-class="{upgrade1: $click.upgrade1 > 0}"
+        data-class="{upgrade1: $upgrade1 > 0}"
         data-on-click="
-        $stimulation += 1 + $click.upgrade1 + $popcorn; 
-        $click.upgrade1? playSound('click.wav') : null"
+        $stimulation += 1 + $upgrade1 + $popcorn; 
+        $upgrade1? playSound('click.wav') : null"
         >Click me</div>
         <div
         class="gt l"
@@ -74,7 +109,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_dvd"
-            data-show="$upgrades < 5 && $stimulation > 4"
+            data-show="$show.dvd"
             data-on-click="$stimulation += 1000"
             >
                 <img src="static/img/dvd.jpg" alt="dvd">
@@ -90,7 +125,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_tab"
-            data-show="$upgrades < 5 && $stimulation > 4 && !$tab"
+            data-show="$show.tab"
             data-on-click="$stimulation -= 5; document.title = 'lol'; $tab=1"
             >
                 <img src="static/img/tab.jpg" alt="tab">
@@ -106,7 +141,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_subway"
-            data-show="$upgrades < 5 && $stimulation > 99 && !$subway"
+            data-show="$show.subway"
             data-on-click="$stimulation -= 100; $subway=1"
             >
                 <img src="static/img/subway.jpg" alt="subway">
@@ -122,8 +157,8 @@
             <div
             class="gc clickable"
             aria-describedby="tt_click"
-            data-show="$upgrades < 5 && $stimulation > 39 && !$click.upgrade1"
-            data-on-click="$stimulation -= 40; $click.upgrade1 = 1"
+            data-show="$show.upgrade1"
+            data-on-click="$stimulation -= 40; $upgrade1 = 1"
             >
                 <img src="static/img/click.jpg" alt="click">
                 <div
@@ -138,7 +173,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_rain"
-            data-show="$upgrades < 5 && $stimulation > 299 && !$rain"
+            data-show="$show.rain"
             data-on-click="$stimulation -= 300; $rain = 15; playSound('rain.wav', 'loop=True')"
             >
                 <img src="static/img/rain.jpg" alt="rain">
@@ -154,7 +189,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_counter"
-            data-show="$upgrades < 5 && $stimulation > 25 && !$counter"
+            data-show="$show.counter"
             data-on-click="$stimulation -= 25; $counter = 1"
             >
                 <img src="static/img/counter.jpg" alt="counter">
@@ -170,7 +205,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_lofi"
-            data-show="$upgrades < 5 && $stimulation > 249 && !$lofi"
+            data-show="$show.lofi"
             data-on-click="$stimulation -= 250; $lofi = 10"
             >
                 <img src="static/img/lofi.jpg" alt="lofi">
@@ -186,7 +221,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_news"
-            data-show="$upgrades < 5 && $stimulation > 99 && !$news"
+            data-show="$show.news"
             data-on-click="$stimulation -= 100; $news = 4"
             >
                 <img src="static/img/news.jpg" alt="news">
@@ -202,7 +237,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_pinwheel"
-            data-show="$upgrades < 5 && $stimulation > 700 && !$pinwheel"
+            data-show="$show.pinwheel"
             data-on-click="$stimulation -= 700; $pinwheel = 1"
             >
                 <img src="static/img/pinwheel.jpg" alt="pinwheel">
@@ -218,7 +253,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_mukbang"
-            data-show="$upgrades < 5 && $stimulation > 5999 && !$mukbang"
+            data-show="$show.mukbang"
             data-on-click="$stimulation -= 6000; $mukbang = 60"
             >
                 <img src="static/img/mukbang.jpg" alt="mukbang">
@@ -234,7 +269,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_popcorn"
-            data-show="$upgrades < 5 && $stimulation > 3499 && !$popcorn"
+            data-show="$show.popcorn"
             data-on-click="$stimulation -= 3500; $popcorn = 8"
             >
                 <img src="static/img/popcorn.jpg" alt="popcorn">
@@ -250,7 +285,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_achievements"
-            data-show="$upgrades < 5 && $stimulation > 700 && !$achievements"
+            data-show="$show.achievements"
             data-on-click="$stimulation -= 1500; $achievements = 1"
             >
                 <img src="static/img/achievements.jpg" alt="achievements">
@@ -266,7 +301,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_press"
-            data-show="$upgrades < 5 && $stimulation > 999 && !$press"
+            data-show="$show.press"
             data-on-click="$stimulation -= 1000; $press = 1"
             >
                 <img src="static/img/press.jpg" alt="press">
@@ -282,7 +317,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_slime"
-            data-show="$upgrades < 5 && $stimulation > 3999 && !$slime"
+            data-show="$show.slime"
             data-on-click="$stimulation -= 4000; $slime = 1"
             >
                 <img src="static/img/slime.jpg" alt="slime">
@@ -312,7 +347,7 @@
             <img src="static/img/rain.svg" alt="rain effect">
         </div>
         <div id="pinwheel" data-show="$pinwheel"></div>
-        <pre hidden data-text="ctx.signals.JSON()"></pre>
+        <pre data-text="ctx.signals.JSON()"></pre>
     </main>
 </body>
 <script>
