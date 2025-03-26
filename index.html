@@ -47,19 +47,19 @@
 			mukbang: 0
 		}"
 		data-on-raf="
-		$stimulation >= 5? ($show.dvd = 1) : null;
-		$stimulation >= 10? ($show.tab = 1) : null;
-		$stimulation >= 25? ($show.counter = 1) : null;
-		$stimulation >= 40? ($show.upgrade1 = 1) : null;
-		$stimulation >= 100? ($show.subway = 1, $show.news = 1) : null;
-		$stimulation >= 250? ($show.lofi = 1) : null;
-		$stimulation >= 300? ($show.rain = 1) : null;
-		$stimulation >= 700? ($show.pinwheel = 1) : null;
-		$stimulation >= 1000? ($show.press = 1) : null;
-		$stimulation >= 1500? ($show.achievements = 1) : null;
-		$stimulation >= 3500? ($show.popcorn = 1) : null;
-		$stimulation >= 4000? ($show.slime = 1) : null;
-		$stimulation >= 6000? ($show.mukbang = 1) : null
+		$stimulation >= 2? ($show.dvd = 1) : null;
+		$stimulation >= 5? ($show.tab = 1) : null;
+		$stimulation >= 12? ($show.counter = 1) : null;
+		$stimulation >= 20? ($show.upgrade1 = 1) : null;
+		$stimulation >= 50? ($show.subway = 1, $show.news = 1) : null;
+		$stimulation >= 125? ($show.lofi = 1) : null;
+		$stimulation >= 150? ($show.rain = 1) : null;
+		$stimulation >= 350? ($show.pinwheel = 1) : null;
+		$stimulation >= 500? ($show.press = 1) : null;
+		$stimulation >= 750? ($show.achievements = 1) : null;
+		$stimulation >= 1750? ($show.popcorn = 1) : null;
+		$stimulation >= 2000? ($show.slime = 1) : null;
+		$stimulation >= 3000? ($show.mukbang = 1) : null
 		">
 		</div>
 		<div
@@ -81,7 +81,7 @@
 		<div
 		id="button"
 		class="gt l clickable"
-		data-class="{upgrade1: $upgrade1 > 0}"
+		data-class="{upgrade1: $upgrade1}"
 		data-on-click="
 		$stimulation += 1 + $upgrade1 + $popcorn;
 		$upgrade1? playSound('click.wav') : null"
@@ -123,7 +123,7 @@
 			class="gc clickable"
 			aria-describedby="tt_tab"
 			data-show="$show.tab && !$tab"
-			data-on-click="$stimulation -= 5; document.title = 'lol'; $tab=1"
+			data-on-click="$stimulation -= 5; document.title = 'Data Stimulation Game 2025'; $tab=1"
 			>
 				<img src="static/img/tab.jpg" alt="tab">
 				<div
@@ -344,7 +344,7 @@
 			<img src="static/img/rain.svg" alt="rain effect">
 		</div>
 		<div id="pinwheel" data-show="$pinwheel"></div>
-		<pre data-text="ctx.signals.JSON()"></pre>
+		<pre hidden data-text="ctx.signals.JSON()"></pre>
 	</main>
 </body>
 <script>
