@@ -106,7 +106,7 @@
             <div
             class="gc clickable"
             aria-describedby="tt_subway"
-            data-show="$upgrades < 5 && $stimulation > 4 && !$subway"
+            data-show="$upgrades < 5 && $stimulation > 99 && !$subway"
             data-on-click="$stimulation -= 100; $subway=1"
             >
                 <img src="static/img/subway.jpg" alt="subway">
@@ -171,7 +171,7 @@
             class="gc clickable"
             aria-describedby="tt_lofi"
             data-show="$upgrades < 5 && $stimulation > 249 && !$lofi"
-            data-on-click="$lofi = 10"
+            data-on-click="$stimulation -= 250; $lofi = 10"
             >
                 <img src="static/img/lofi.jpg" alt="lofi">
                 <div
@@ -187,7 +187,7 @@
             class="gc clickable"
             aria-describedby="tt_news"
             data-show="$upgrades < 5 && $stimulation > 99 && !$news"
-            data-on-click="$news = 4"
+            data-on-click="$stimulation -= 100; $news = 4"
             >
                 <img src="static/img/news.jpg" alt="news">
                 <div
@@ -203,7 +203,7 @@
             class="gc clickable"
             aria-describedby="tt_pinwheel"
             data-show="$upgrades < 5 && $stimulation > 700 && !$pinwheel"
-            data-on-click="$pinwheel = 1"
+            data-on-click="$stimulation -= 700; $pinwheel = 1"
             >
                 <img src="static/img/pinwheel.jpg" alt="pinwheel">
                 <div
@@ -219,7 +219,7 @@
             class="gc clickable"
             aria-describedby="tt_mukbang"
             data-show="$upgrades < 5 && $stimulation > 5999 && !$mukbang"
-            data-on-click="$mukbang = 60"
+            data-on-click="$stimulation -= 6000; $mukbang = 60"
             >
                 <img src="static/img/mukbang.jpg" alt="mukbang">
                 <div
@@ -235,7 +235,7 @@
             class="gc clickable"
             aria-describedby="tt_popcorn"
             data-show="$upgrades < 5 && $stimulation > 3499 && !$popcorn"
-            data-on-click="$popcorn = 8"
+            data-on-click="$stimulation -= 3500; $popcorn = 8"
             >
                 <img src="static/img/popcorn.jpg" alt="popcorn">
                 <div
@@ -251,7 +251,7 @@
             class="gc clickable"
             aria-describedby="tt_achievements"
             data-show="$upgrades < 5 && $stimulation > 700 && !$achievements"
-            data-on-click="$achievements = 1"
+            data-on-click="$stimulation -= 1500; $achievements = 1"
             >
                 <img src="static/img/achievements.jpg" alt="achievements">
                 <div
@@ -267,7 +267,7 @@
             class="gc clickable"
             aria-describedby="tt_press"
             data-show="$upgrades < 5 && $stimulation > 999 && !$press"
-            data-on-click="$press = 1"
+            data-on-click="$stimulation -= 1000; $press = 1"
             >
                 <img src="static/img/press.jpg" alt="press">
                 <div
@@ -283,7 +283,7 @@
             class="gc clickable"
             aria-describedby="tt_slime"
             data-show="$upgrades < 5 && $stimulation > 3999 && !$slime"
-            data-on-click="$slime = 1"
+            data-on-click="$stimulation -= 4000; $slime = 1"
             >
                 <img src="static/img/slime.jpg" alt="slime">
                 <div
@@ -312,7 +312,7 @@
             <img src="static/img/rain.svg" alt="rain effect">
         </div>
         <div id="pinwheel" data-show="$pinwheel"></div>
-        <pre data-text="ctx.signals.JSON()"></pre>
+        <pre hidden data-text="ctx.signals.JSON()"></pre>
     </main>
 </body>
 <script>
