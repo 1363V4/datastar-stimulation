@@ -1,360 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>untitled</title>
-    <link rel="stylesheet" type="text/css" href="static/css/site.css">
-    <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
-    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-beta.10/bundles/datastar.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>untitled</title>
+	<link rel="stylesheet" type="text/css" href="static/css/site.css">
+	<link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+	<script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-beta.10/bundles/datastar.js"></script>
 </head>
 <body>
-    <main style="display: none" data-show="true">
-        <div
-        data-signals="{
-            stimulation: 0, 
-            prev_stimulation: 0,
-            sps: 0,
-            show: {
-                dvd: 0,
-                tab: 0,
-                counter: 0,
-                upgrade1: 0,
-                subway: 0,
-                news: 0,
-                lofi: 0,
-                rain: 0,
-                pinwheel: 0,
-                press: 0,
-                achievements: 0,
-                popcorn: 0,
-                slime: 0,
-                mukbang: 0
-            }
-        }"
-        data-on-signal-change-stimulation="
-        console.log('ok');
-        $stimulation >= 5? ($show.dvd = 1) : null;
-        $stimulation >= 10? ($show.tab = 1) : null;
-        $stimulation >= 25? ($show.counter = 1) : null;
-        $stimulation >= 40? ($show.upgrade1 = 1) : null;
-        $stimulation >= 100? ($show.subway = 1, $show.news = 1) : null;
-        $stimulation >= 250? ($show.lofi = 1) : null;
-        $stimulation >= 300? ($show.rain = 1) : null;
-        $stimulation >= 700? ($show.pinwheel = 1) : null;
-        $stimulation >= 1000? ($show.press = 1) : null;
-        $stimulation >= 1500? ($show.achievements = 1) : null;
-        $stimulation >= 3500? ($show.popcorn = 1) : null;
-        $stimulation >= 4000? ($show.slime = 1) : null;
-        $stimulation >= 6000? ($show.mukbang = 1) : null
-        ">
-        </div>
-        <div 
-        data-signals="{
-            dvd: 0,
-            tab: 0,
-            counter: 0,
-            upgrade1: 0, 
-            subway: 0,
-            news: 0,
-            lofi: 0,
-            rain: 0,
-            pinwheel: 0,
-            press: 0,
-            achievements: 0,
-            popcorn: 0,
-            slime: 0,
-            mukbang: 0
-        }"
-        data-on-raf__throttle.1s="
-        $stimulation += 
-        $rain 
-        + $pinwheel
-        + $news
-        + $slime
-        + $lofi
-        + $mukbang"
-        ></div>
-        <div id="news" data-show="$news">
-            <span>BREAKING:</span>
-            <marquee behavior="scroll" direction="left">
-                Scientists discover house parties •Are news banners a thing of the past? •Frogs missing worldwide •Wall Street analyst says recession will happen, or maybe not, he's not really sure •The frogs are back •Are cold showers making you bald? •My tummy hurts :( •Lab rats unionize and demand fair compensation •Op-ed: I've always wanted to write an op-ed •Local man finally moving away •Study says that you're looking super cute today :3 •Introverts United meetup deals with disappointing attendance •Peter Piper, 63, picked up in pickled pepper ponzi plot •News headline writers facing layoffs, wait does that include me? Please I need this •President moves to reverse The Louisiana Purchase, “It was just a bad deal” •Diet Coke shown to cure just about everything •World's longest game of hide and seek turns into missing persons case •Mystery Meat Monday causes mass casualty •Hacker sets everyone's credit score to 7 •Hero dog becomes world's worst DJ •Shrieking eldritch horror pulls ahead in mayoral race •Child star steals hearts, faces prison •Celebrity chef apologizes for asbestos incident •Father, 34, arrested for stealing son's nose •Scientists reveal something huge, probably •Rain expected worldwide today •Officials warn batteries still not edible •Winter fashion forecast: Jorts and junderwear •Orca capsizes hearts, wins Mystic Bay beauty pageant •Local grandma says you're too thin •Ketchup truck collision has drivers seeing red •Gymnastic medalist arrested in murder plot: “She's twisted” •Hot dog eating competition ends in tragedy •Scientists invent new form of anxiety •Local election ends in tie, candidates must kiss •Five dead in trolley problem •MPA unveils new rating system for prudes, dorks •Double trouble: Another Earth is heading our way •Beloved talk show host's last words revealed: “oof” •Nine out of ten doctors agree: The other doctor is a menace • Scientists discover house parties •Are news banners a thing of the past? •Frogs missing worldwide •Wall Street analyst says recession will happen, or maybe not, he's not really sure •The frogs are back •Are cold showers making you bald? •My tummy hurts :( •Lab rats unionize and demand fair compensation •Op-ed: I've always wanted to write an op-ed •Local man finally moving away •Study says that you're looking super cute today :3 •Introverts United meetup deals with disappointing attendance •Peter Piper, 63, picked up in pickled pepper ponzi plot •News headline writers facing layoffs, wait does that include me? Please I need this •President moves to reverse The Louisiana Purchase, “It was just a bad deal” •Diet Coke shown to cure just about everything •World's longest game of hide and seek turns into missing persons case •Mystery Meat Monday causes mass casualty •Hacker sets everyone's credit score to 7 •Hero dog becomes world's worst DJ •Shrieking eldritch horror pulls ahead in mayoral race •Child star steals hearts, faces prison •Celebrity chef apologizes for asbestos incident •Father, 34, arrested for stealing son's nose •Scientists reveal something huge, probably •Rain expected worldwide today •Officials warn batteries still not edible •Winter fashion forecast: Jorts and junderwear •Orca capsizes hearts, wins Mystic Bay beauty pageant •Local grandma says you're too thin •Ketchup truck collision has drivers seeing red •Gymnastic medalist arrested in murder plot: “She's twisted” •Hot dog eating competition ends in tragedy •Scientists invent new form of anxiety •Local election ends in tie, candidates must kiss •Five dead in trolley problem •MPA unveils new rating system for prudes, dorks •Double trouble: Another Earth is heading our way •Beloved talk show host's last words revealed: “oof” •Nine out of ten doctors agree: The other doctor is a menace •
-            </marquee>
-        </div>
-        <div
-        id="button"
-        class="gt l clickable"
-        data-class="{upgrade1: $upgrade1 > 0}"
-        data-on-click="
-        $stimulation += 1 + $upgrade1 + $popcorn; 
-        $upgrade1? playSound('click.wav') : null"
-        >Click me</div>
-        <div
-        class="gt l"
-        data-show="$stimulation > 0"
-        ><span data-text="$stimulation"></span> stimulation</div>
-        <div
-        data-show="$counter"
-        data-on-raf__throttle.1s="$sps = $stimulation - $prev_stimulation; $prev_stimulation = $stimulation">
-        <span data-text="$sps"></span> stimulation per second</div>
-        <div id="menus" class="gt l">
-            <div 
-            id="achievements" 
-            class="clickable"
-            data-show="$achievements">Achievements</div>
-        </div>
-        <div
-        id="upgrades"
-        >
-            <div
-            class="gc clickable"
-            aria-describedby="tt_dvd"
-            data-show="$show.dvd"
-            data-on-click="$stimulation += 1000"
-            >
-                <img src="static/img/dvd.jpg" alt="dvd">
-                <div
-                id="tt_dvd"
-                role="tooltip"
-                >
-                    <p>Bouncing DVD</p>
-                    <p>+1 stimulation per bounce</p>
-                    <p data-class-broke="$stimulation < 250">Cost: </p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_tab"
-            data-show="$show.tab"
-            data-on-click="$stimulation -= 5; document.title = 'lol'; $tab=1"
-            >
-                <img src="static/img/tab.jpg" alt="tab">
-                <div
-                id="tt_tab"
-                role="tooltip"
-                >
-                    <p>Add Tab Title</p>
-                    <p>It's good for SEO</p>
-                    <p data-class-broke="$stimulation < 5">Cost: 5 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_subway"
-            data-show="$show.subway"
-            data-on-click="$stimulation -= 100; $subway=1"
-            >
-                <img src="static/img/subway.jpg" alt="subway">
-                <div
-                id="tt_subway"
-                role="tooltip"
-                >
-                    <p>Subway Surfers</p>
-                    <p>+3 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 100">Cost: 100 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_click"
-            data-show="$show.upgrade1"
-            data-on-click="$stimulation -= 40; $upgrade1 = 1"
-            >
-                <img src="static/img/click.jpg" alt="click">
-                <div
-                id="tt_click"
-                role="tooltip"
-                >
-                    <p>Button Upgrade</p>
-                    <p>+1 stimulation per click</p>
-                    <p data-class-broke="$stimulation < 40">Cost: 40 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_rain"
-            data-show="$show.rain"
-            data-on-click="$stimulation -= 300; $rain = 15; playSound('rain.wav', 'loop=True')"
-            >
-                <img src="static/img/rain.jpg" alt="rain">
-                <div
-                id="tt_rain"
-                role="tooltip"
-                >
-                    <p>Rain Sounds</p>
-                    <p>Soothing rain sounds. +15 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 300">Cost: 300 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_counter"
-            data-show="$show.counter"
-            data-on-click="$stimulation -= 25; $counter = 1"
-            >
-                <img src="static/img/counter.jpg" alt="counter">
-                <div
-                id="tt_counter"
-                role="tooltip"
-                >
-                    <p>SPS Counter</p>
-                    <p>See your stimulation per second</p>
-                    <p data-class-broke="$stimulation < 25">Cost: 25 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_lofi"
-            data-show="$show.lofi"
-            data-on-click="$stimulation -= 250; $lofi = 10"
-            >
-                <img src="static/img/lofi.jpg" alt="lofi">
-                <div
-                id="tt_lofi"
-                role="tooltip"
-                >
-                    <p>Lofi Beats</p>
-                    <p>Helps you study and relax. +10 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 250">Cost: 250 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_news"
-            data-show="$show.news"
-            data-on-click="$stimulation -= 100; $news = 4"
-            >
-                <img src="static/img/news.jpg" alt="news">
-                <div
-                id="tt_news"
-                role="tooltip"
-                >
-                    <p>Breaking News</p>
-                    <p>Stay up to date with the latest news. +4 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 100">Cost: 100 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_pinwheel"
-            data-show="$show.pinwheel"
-            data-on-click="$stimulation -= 700; $pinwheel = 1"
-            >
-                <img src="static/img/pinwheel.jpg" alt="pinwheel">
-                <div
-                id="tt_pinwheel"
-                role="tooltip"
-                >
-                    <p>Pinwheel</p>
-                    <p>+20 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 700">Cost: 700 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_mukbang"
-            data-show="$show.mukbang"
-            data-on-click="$stimulation -= 6000; $mukbang = 60"
-            >
-                <img src="static/img/mukbang.jpg" alt="mukbang">
-                <div
-                id="tt_mukbang"
-                role="tooltip"
-                >
-                    <p>Mukbang</p>
-                    <p>Watch a guy eat. +60 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 6000">Cost: 6000 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_popcorn"
-            data-show="$show.popcorn"
-            data-on-click="$stimulation -= 3500; $popcorn = 8"
-            >
-                <img src="static/img/popcorn.jpg" alt="popcorn">
-                <div
-                id="tt_popcorn"
-                role="tooltip"
-                >
-                    <p>Popcorn Animation</p>
-                    <p>+8 stimulation per click</p>
-                    <p data-class-broke="$stimulation < 3500">Cost: 3500 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_achievements"
-            data-show="$show.achievements"
-            data-on-click="$stimulation -= 1500; $achievements = 1"
-            >
-                <img src="static/img/achievements.jpg" alt="achievements">
-                <div
-                id="tt_achievements"
-                role="tooltip"
-                >
-                    <p>Achievements</p>
-                    <p>Celebrate your accomplishments</p>
-                    <p data-class-broke="$stimulation < 1500">Cost: 1500 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_press"
-            data-show="$show.press"
-            data-on-click="$stimulation -= 1000; $press = 1"
-            >
-                <img src="static/img/press.jpg" alt="press">
-                <div
-                id="tt_press"
-                role="tooltip"
-                >
-                    <p>Hydraulic Press</p>
-                    <p>Squish things slowly</p>
-                    <p data-class-broke="$stimulation < 1000">Cost: 1000 stimulation</p>
-                </div>
-            </div>
-            <div
-            class="gc clickable"
-            aria-describedby="tt_slime"
-            data-show="$show.slime"
-            data-on-click="$stimulation -= 4000; $slime = 1"
-            >
-                <img src="static/img/slime.jpg" alt="slime">
-                <div
-                id="tt_slime"
-                role="tooltip"
-                >
-                    <p>Slime</p>
-                    <p>Watch ASMR slime videos. +35 stimulation per second</p>
-                    <p data-class-broke="$stimulation < 4000">Cost: 4000 stimulation</p>
-                </div>
-            </div>
-        </div>
-        <div id="subway_stream" class="stream" data-show="$subway">
-            <img src="static/img/subway_stream.jpg" alt="subway stream">
-        </div>
-        <div id="lofi_stream" class="stream" data-show="$lofi">
-            <img src="static/img/lofi_stream.jpg" alt="lofi stream">
-        </div>
-        <div id="slime_stream" class="stream" data-show="$slime">
-            <img src="static/img/slime_stream.jpg" alt="slime stream">
-        </div>
-        <div id="mukbang_stream" class="stream" data-show="$mukbang">
-            <img src="static/img/mukbang_stream.jpg" alt="mukbang stream">
-        </div>
-        <div id="rain" data-show="$rain">
-            <img src="static/img/rain.svg" alt="rain effect">
-        </div>
-        <div id="pinwheel" data-show="$pinwheel"></div>
-        <pre data-text="ctx.signals.JSON()"></pre>
-    </main>
+	<main style="display: none" data-show="true">
+		<div
+		data-signals="{
+			stimulation: 0,
+			prev_stimulation: 0,
+			sps: 0,
+			show: {
+				dvd: 0,
+				tab: 0,
+				counter: 0,
+				upgrade1: 0,
+				subway: 0,
+				news: 0,
+				lofi: 0,
+				rain: 0,
+				pinwheel: 0,
+				press: 0,
+				achievements: 0,
+				popcorn: 0,
+				slime: 0,
+				mukbang: 0
+			},
+			dvd: 0,
+			tab: 0,
+			counter: 0,
+			upgrade1: 0,
+			subway: 0,
+			news: 0,
+			lofi: 0,
+			rain: 0,
+			pinwheel: 0,
+			press: 0,
+			achievements: 0,
+			popcorn: 0,
+			slime: 0,
+			mukbang: 0
+		}"
+		data-on-signal-change-stimulation="
+		$stimulation >= 5? ($show.dvd = 1) : null;
+		$stimulation >= 10? ($show.tab = 1) : null;
+		$stimulation >= 25? ($show.counter = 1) : null;
+		$stimulation >= 40? ($show.upgrade1 = 1) : null;
+		$stimulation >= 100? ($show.subway = 1, $show.news = 1) : null;
+		$stimulation >= 250? ($show.lofi = 1) : null;
+		$stimulation >= 300? ($show.rain = 1) : null;
+		$stimulation >= 700? ($show.pinwheel = 1) : null;
+		$stimulation >= 1000? ($show.press = 1) : null;
+		$stimulation >= 1500? ($show.achievements = 1) : null;
+		$stimulation >= 3500? ($show.popcorn = 1) : null;
+		$stimulation >= 4000? ($show.slime = 1) : null;
+		$stimulation >= 6000? ($show.mukbang = 1) : null
+		">
+		</div>
+		<div
+		data-on-raf__throttle.1s="
+		$stimulation +=
+		$rain
+		+ $pinwheel
+		+ $news
+		+ $slime
+		+ $lofi
+		+ $mukbang"
+		></div>
+		<div id="news" data-show="$news">
+			<span>BREAKING:</span>
+			<marquee behavior="scroll" direction="left">
+				Scientists discover house parties •Are news banners a thing of the past? •Frogs missing worldwide •Wall Street analyst says recession will happen, or maybe not, he's not really sure •The frogs are back •Are cold showers making you bald? •My tummy hurts :( •Lab rats unionize and demand fair compensation •Op-ed: I've always wanted to write an op-ed •Local man finally moving away •Study says that you're looking super cute today :3 •Introverts United meetup deals with disappointing attendance •Peter Piper, 63, picked up in pickled pepper ponzi plot •News headline writers facing layoffs, wait does that include me? Please I need this •President moves to reverse The Louisiana Purchase, “It was just a bad deal” •Diet Coke shown to cure just about everything •World's longest game of hide and seek turns into missing persons case •Mystery Meat Monday causes mass casualty •Hacker sets everyone's credit score to 7 •Hero dog becomes world's worst DJ •Shrieking eldritch horror pulls ahead in mayoral race •Child star steals hearts, faces prison •Celebrity chef apologizes for asbestos incident •Father, 34, arrested for stealing son's nose •Scientists reveal something huge, probably •Rain expected worldwide today •Officials warn batteries still not edible •Winter fashion forecast: Jorts and junderwear •Orca capsizes hearts, wins Mystic Bay beauty pageant •Local grandma says you're too thin •Ketchup truck collision has drivers seeing red •Gymnastic medalist arrested in murder plot: “She's twisted” •Hot dog eating competition ends in tragedy •Scientists invent new form of anxiety •Local election ends in tie, candidates must kiss •Five dead in trolley problem •MPA unveils new rating system for prudes, dorks •Double trouble: Another Earth is heading our way •Beloved talk show host's last words revealed: “oof” •Nine out of ten doctors agree: The other doctor is a menace • Scientists discover house parties •Are news banners a thing of the past? •Frogs missing worldwide •Wall Street analyst says recession will happen, or maybe not, he's not really sure •The frogs are back •Are cold showers making you bald? •My tummy hurts :( •Lab rats unionize and demand fair compensation •Op-ed: I've always wanted to write an op-ed •Local man finally moving away •Study says that you're looking super cute today :3 •Introverts United meetup deals with disappointing attendance •Peter Piper, 63, picked up in pickled pepper ponzi plot •News headline writers facing layoffs, wait does that include me? Please I need this •President moves to reverse The Louisiana Purchase, “It was just a bad deal” •Diet Coke shown to cure just about everything •World's longest game of hide and seek turns into missing persons case •Mystery Meat Monday causes mass casualty •Hacker sets everyone's credit score to 7 •Hero dog becomes world's worst DJ •Shrieking eldritch horror pulls ahead in mayoral race •Child star steals hearts, faces prison •Celebrity chef apologizes for asbestos incident •Father, 34, arrested for stealing son's nose •Scientists reveal something huge, probably •Rain expected worldwide today •Officials warn batteries still not edible •Winter fashion forecast: Jorts and junderwear •Orca capsizes hearts, wins Mystic Bay beauty pageant •Local grandma says you're too thin •Ketchup truck collision has drivers seeing red •Gymnastic medalist arrested in murder plot: “She's twisted” •Hot dog eating competition ends in tragedy •Scientists invent new form of anxiety •Local election ends in tie, candidates must kiss •Five dead in trolley problem •MPA unveils new rating system for prudes, dorks •Double trouble: Another Earth is heading our way •Beloved talk show host's last words revealed: “oof” •Nine out of ten doctors agree: The other doctor is a menace •
+			</marquee>
+		</div>
+		<div
+		id="button"
+		class="gt l clickable"
+		data-class="{upgrade1: $upgrade1 > 0}"
+		data-on-click="
+		$stimulation += 1 + $upgrade1 + $popcorn;
+		$upgrade1? playSound('click.wav') : null"
+		>Click me</div>
+		<div
+		class="gt l"
+		data-show="$stimulation > 0"
+		><span data-text="$stimulation"></span> stimulation</div>
+		<div
+		data-show="$counter"
+		data-on-raf__throttle.1s="$sps = $stimulation - $prev_stimulation; $prev_stimulation = $stimulation">
+		<span data-text="$sps"></span> stimulation per second</div>
+		<div id="menus" class="gt l">
+			<div
+			id="achievements"
+			class="clickable"
+			data-show="$achievements">Achievements</div>
+		</div>
+		<div
+		id="upgrades"
+		>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_dvd"
+			data-show="$show.dvd"
+			data-on-click="$stimulation += 1000"
+			>
+				<img src="static/img/dvd.jpg" alt="dvd">
+				<div
+				id="tt_dvd"
+				role="tooltip"
+				>
+					<p>Bouncing DVD</p>
+					<p>+1 stimulation per bounce</p>
+					<p data-class-broke="$stimulation < 250">Cost: </p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_tab"
+			data-show="$show.tab && !$tab"
+			data-on-click="$stimulation -= 5; document.title = 'lol'; $tab=1"
+			>
+				<img src="static/img/tab.jpg" alt="tab">
+				<div
+				id="tt_tab"
+				role="tooltip"
+				>
+					<p>Add Tab Title</p>
+					<p>It's good for SEO</p>
+					<p data-class-broke="$stimulation < 5">Cost: 5 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_counter"
+			data-show="$show.counter && !$counter"
+			data-on-click="$stimulation -= 25; $counter = 1"
+			>
+				<img src="static/img/counter.jpg" alt="counter">
+				<div
+				id="tt_counter"
+				role="tooltip"
+				>
+					<p>SPS Counter</p>
+					<p>See your stimulation per second</p>
+					<p data-class-broke="$stimulation < 25">Cost: 25 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_click"
+			data-show="$show.upgrade1 && !$upgrade1"
+			data-on-click="$stimulation -= 40; $upgrade1 = 1"
+			>
+				<img src="static/img/click.jpg" alt="click">
+				<div
+				id="tt_click"
+				role="tooltip"
+				>
+					<p>Button Upgrade</p>
+					<p>+1 stimulation per click</p>
+					<p data-class-broke="$stimulation < 40">Cost: 40 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_subway"
+			data-show="$show.subway && !$subway"
+			data-on-click="$stimulation -= 100; $subway=1"
+			>
+				<img src="static/img/subway.jpg" alt="subway">
+				<div
+				id="tt_subway"
+				role="tooltip"
+				>
+					<p>Subway Surfers</p>
+					<p>+3 stimulation per second</p>
+					<p data-class-broke="$stimulation < 100">Cost: 100 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_news"
+			data-show="$show.news && !$news"
+			data-on-click="$stimulation -= 100; $news = 4"
+			>
+				<img src="static/img/news.jpg" alt="news">
+				<div
+				id="tt_news"
+				role="tooltip"
+				>
+					<p>Breaking News</p>
+					<p>Stay up to date with the latest news. +4 stimulation per second</p>
+					<p data-class-broke="$stimulation < 100">Cost: 100 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_lofi"
+			data-show="$show.lofi && !$lofi"
+			data-on-click="$stimulation -= 250; $lofi = 10"
+			>
+				<img src="static/img/lofi.jpg" alt="lofi">
+				<div
+				id="tt_lofi"
+				role="tooltip"
+				>
+					<p>Lofi Beats</p>
+					<p>Helps you study and relax. +10 stimulation per second</p>
+					<p data-class-broke="$stimulation < 250">Cost: 250 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_rain"
+			data-show="$show.rain && !$rain"
+			data-on-click="$stimulation -= 300; $rain = 15; playSound('rain.wav', 'loop=True')"
+			>
+				<img src="static/img/rain.jpg" alt="rain">
+				<div
+				id="tt_rain"
+				role="tooltip"
+				>
+					<p>Rain Sounds</p>
+					<p>Soothing rain sounds. +15 stimulation per second</p>
+					<p data-class-broke="$stimulation < 300">Cost: 300 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_pinwheel"
+			data-show="$show.pinwheel && !$pinwheel"
+			data-on-click="$stimulation -= 700; $pinwheel = 1"
+			>
+				<img src="static/img/pinwheel.jpg" alt="pinwheel">
+				<div
+				id="tt_pinwheel"
+				role="tooltip"
+				>
+					<p>Pinwheel</p>
+					<p>+20 stimulation per second</p>
+					<p data-class-broke="$stimulation < 700">Cost: 700 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_press"
+			data-show="$show.press && !$press"
+			data-on-click="$stimulation -= 1000; $press = 1"
+			>
+				<img src="static/img/press.jpg" alt="press">
+				<div
+				id="tt_press"
+				role="tooltip"
+				>
+					<p>Hydraulic Press</p>
+					<p>Squish things slowly</p>
+					<p data-class-broke="$stimulation < 1000">Cost: 1000 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_achievements"
+			data-show="$show.achievements && !$achievements"
+			data-on-click="$stimulation -= 1500; $achievements = 1"
+			>
+				<img src="static/img/achievements.jpg" alt="achievements">
+				<div
+				id="tt_achievements"
+				role="tooltip"
+				>
+					<p>Achievements</p>
+					<p>Celebrate your accomplishments</p>
+					<p data-class-broke="$stimulation < 1500">Cost: 1500 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_popcorn"
+			data-show="$show.popcorn && !$popcorn"
+			data-on-click="$stimulation -= 3500; $popcorn = 8"
+			>
+				<img src="static/img/popcorn.jpg" alt="popcorn">
+				<div
+				id="tt_popcorn"
+				role="tooltip"
+				>
+					<p>Popcorn Animation</p>
+					<p>+8 stimulation per click</p>
+					<p data-class-broke="$stimulation < 3500">Cost: 3500 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_slime"
+			data-show="$show.slime && !$slime"
+			data-on-click="$stimulation -= 4000; $slime = 1"
+			>
+				<img src="static/img/slime.jpg" alt="slime">
+				<div
+				id="tt_slime"
+				role="tooltip"
+				>
+					<p>Slime</p>
+					<p>Watch ASMR slime videos. +35 stimulation per second</p>
+					<p data-class-broke="$stimulation < 4000">Cost: 4000 stimulation</p>
+				</div>
+			</div>
+			<div
+			class="gc clickable"
+			aria-describedby="tt_mukbang"
+			data-show="$show.mukbang && !$mukbang"
+			data-on-click="$stimulation -= 6000; $mukbang = 60"
+			>
+				<img src="static/img/mukbang.jpg" alt="mukbang">
+				<div
+				id="tt_mukbang"
+				role="tooltip"
+				>
+					<p>Mukbang</p>
+					<p>Watch a guy eat. +60 stimulation per second</p>
+					<p data-class-broke="$stimulation < 6000">Cost: 6000 stimulation</p>
+				</div>
+			</div>
+		</div>
+		<div id="subway_stream" class="stream" data-show="$subway">
+			<img src="static/img/subway_stream.jpg" alt="subway stream">
+		</div>
+		<div id="lofi_stream" class="stream" data-show="$lofi">
+			<img src="static/img/lofi_stream.jpg" alt="lofi stream">
+		</div>
+		<div id="slime_stream" class="stream" data-show="$slime">
+			<img src="static/img/slime_stream.jpg" alt="slime stream">
+		</div>
+		<div id="mukbang_stream" class="stream" data-show="$mukbang">
+			<img src="static/img/mukbang_stream.jpg" alt="mukbang stream">
+		</div>
+		<div id="rain" data-show="$rain">
+			<img src="static/img/rain.svg" alt="rain effect">
+		</div>
+		<div id="pinwheel" data-show="$pinwheel"></div>
+		<pre data-text="ctx.signals.JSON()"></pre>
+	</main>
 </body>
 <script>
-    function playSound(filename, loop = false) {
-        var audio = new Audio('static/wav/' + filename);
-        audio.loop = loop;
-        audio.play();
-    }
+	function playSound(filename, loop = false) {
+		var audio = new Audio('static/wav/' + filename);
+		audio.loop = loop;
+		audio.play();
+	}
 </script>
-</html> 
+</html>
