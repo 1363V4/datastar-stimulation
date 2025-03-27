@@ -66,10 +66,12 @@
 		data-on-raf__throttle.1s="
 		$stimulation +=
 		$rain
-		+ $pinwheel
+		+ $subway
 		+ $news
-		+ $slime
 		+ $lofi
+		+ $rain
+		+ $pinwheel
+		+ $slime
 		+ $mukbang"
 		></div>
 		<div id="news" data-show="$news">
@@ -171,7 +173,7 @@
 			class="gc clickable"
 			aria-describedby="tt_subway"
 			data-show="$show.subway && !$subway"
-			data-on-click="$stimulation -= 100; $subway=1"
+			data-on-click="$stimulation -= 100; $subway=3"
 			>
 				<img src="static/img/subway.jpg" alt="subway">
 				<div
@@ -235,7 +237,7 @@
 			class="gc clickable"
 			aria-describedby="tt_pinwheel"
 			data-show="$show.pinwheel && !$pinwheel"
-			data-on-click="$stimulation -= 700; $pinwheel = 1"
+			data-on-click="$stimulation -= 700; $pinwheel = 20"
 			>
 				<img src="static/img/pinwheel.jpg" alt="pinwheel">
 				<div
@@ -299,7 +301,7 @@
 			class="gc clickable"
 			aria-describedby="tt_slime"
 			data-show="$show.slime && !$slime"
-			data-on-click="$stimulation -= 4000; $slime = 1"
+			data-on-click="$stimulation -= 4000; $slime = 35"
 			>
 				<img src="static/img/slime.jpg" alt="slime">
 				<div
